@@ -9,4 +9,9 @@ const db = mongoose.connection
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Conectado a la base de datos'));
 
+app.use(express.json());
+
+const inscritoRouter = require('./routes/inscritos')
+app.use('/inscritos', inscritoRouter)
+
 app.listen(3000, () => console.log('Servidor Iniciado'));

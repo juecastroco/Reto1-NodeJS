@@ -1,0 +1,10 @@
+GET http://localhost:3000/inscritos
+
+###
+
+GET http://localhost:3000/inscritos/
+
+
+###
+POST http://localhost:3000/inscritos
+
