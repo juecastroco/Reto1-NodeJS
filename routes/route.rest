@@ -7,4 +7,21 @@ GET http://localhost:3000/inscritos/
 
 ###
 POST http://localhost:3000/inscritos
+Content-Type: application/json
+
+{
+    "tipoDocumento": "Tarjeta de Identidad",
+    "identificacion": "1000004444",
+    "nombres": "Elizabeth",
+    "apellidos": "Gaitan Eslava",
+    "direccion": "Calle 167 # 34 - 23",
+    "correo": "eli.gaitaneslava@correo.com",
+    "telefonoFijo": "7777777",
+    "celular": "6559999999",
+    "linkComprobante": "http://icfes.edu.co/comprobates/1155",
+    "codigoIcfes": "1155",
+    "familiarEstudiando": false,
+    "estrato": 5,
+    "tipoColegio": "Privado"
+}
 

@@ -7,29 +7,49 @@ const Inscrito = require('../models/inscrito')
 router.get('/', async (req, res) => {
     try {
         const inscritos = await Inscrito.find();
-        res.status(200).json(inscritos)
+        res.status(200).json(inscritos);
     } catch (err) {
         res.status(500).json({message: err.message});
     };
 });
 
 //Obtener 1 inscrito
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
 
 });
 
 //Crear un Inscrito
-router.post('/', (req, res) => {
-
+router.post('/', async (req, res) => {
+    const inscrito = new Inscrito({
+        tipoDocumento: req.body.tipoDocumento,
+        identificacion: req.body.identificacion,
+        nombres: req.body.nombres,
+        apellidos: req.body.apellidos,
+        direccion: req.body.direccion,
+        correo: req.body.correo,
+        telefonoFijo: req.body.telefonoFijo,
+        celular: req.body.celular,
+        linkComprobante: req.body.linkComprobante,
+        codigoIcfes: req.body.codigoIcfes,
+        familiarEstudiando: req.body.familiarEstudiando,
+        estrato: req.body.estrato,
+        tipoColegio: req.body.tipoColegio
+    });
+    try {
+        const nuevoInscrito = await inscrito.save();
+        res.status(201).json(nuevoInscrito);
+    } catch (err) {
+        res.status(400).json({message: err.message});
+    };
 });
 
 //Actulizar un Inscrito
-router.patch('/:id', (req, res) => {
+router.patch('/:id', async (req, res) => {
 
 });
 
 //Eliminar un Inscrito
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
 
 });
 
