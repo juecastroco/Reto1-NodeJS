@@ -25,3 +25,7 @@ Content-Type: application/json
     "tipoColegio": "Privado"
 }
 
+###
+DELETE http://localhost:3000/inscritos/634df16f8fa873743927d532
+
+
