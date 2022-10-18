@@ -1,9 +1,16 @@
 const express = require('express');
+const inscrito = require('../models/inscrito');
 const router = express.Router();
+const Inscrito = require('../models/inscrito')
 
 //Obtener Inscritos
-router.get('/', (req, res) => {
-    res.send('Hola Mundo')
+router.get('/', async (req, res) => {
+    try {
+        const inscritos = await Inscrito.find();
+        res.status(200).json(inscritos)
+    } catch (err) {
+        res.status(500).json({message: err.message});
+    };
 });
 
 //Obtener 1 inscrito
