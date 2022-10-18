@@ -2,7 +2,7 @@ GET http://localhost:3000/inscritos
 
 ###
 
-GET http://localhost:3000/inscritos/
+GET http://localhost:3000/inscritos/634df03b8fa873743927d52e
 
 
 ###

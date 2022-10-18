@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
 });
 
 //Obtener 1 inscrito
-router.get('/:id', async (req, res) => {
-
+router.get('/:id', getInscrito, async (req, res) => {
+    res.json(res.inscrito);
 });
 
 //Crear un Inscrito
