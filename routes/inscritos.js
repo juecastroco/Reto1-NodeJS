@@ -53,4 +53,19 @@ router.delete('/:id', async (req, res) => {
 
 });
 
+async function getInscrito (req, res, next) {
+    let inscrito;
+    try {
+        inscrito = await Inscrito.findById(req.params.id);
+        if (inscrito == null) {
+            return res.status(404).json({message: 'No se pudo encontrar el usuario inscrito'});
+        };
+    } catch (err) {
+        return res.status(500).json({message: err.message});
+    };
+
+    res.inscrito = inscrito;
+    next();
+};
+
 module.exports = router;
