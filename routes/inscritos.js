@@ -43,9 +43,51 @@ router.post('/', async (req, res) => {
     };
 });
 
-//Actulizar un Inscrito
-router.patch('/:id', async (req, res) => {
-
+//Actualizar un Inscrito
+router.patch('/:id', getInscrito, async (req, res) => {
+    if (req.body.tipoDocumento != null) {
+        res.inscrito.tipoDocumento = req.body.tipoDocumento;
+    };
+    if (req.body.identificacion != null) {
+        res.inscrito.identificacion = req.body.identificacion;
+    };
+    if (req.body.nombres != null) {
+        res.inscrito.nombres = req.body.nombres;
+    };
+    if (req.body.apellidos != null) {
+        res.inscrito.apellidos = req.body.apellidos;
+    };
+    if (req.body.direccion != null) {
+        res.inscrito.direccion = req.body.direccion;
+    };
+    if (req.body.correo != null) {
+        res.inscrito.correo = req.body.correo;
+    };
+    if (req.body.telefonoFijo != null) {
+        res.inscrito.telefono
+        Fijo = req.body.telefonoFijo;
+    };
+    if (req.body.celular != null) {
+        res.inscrito.celular = req.body.celular;
+    };
+    if (req.body.linkComprobante != null) {
+        res.inscrito.linkComprobante = req.body.linkComprobante;
+    };
+    if (req.body.familiarEstudiando != null) {
+        res.inscrito.familiarEstudiando = req.body.familiarEstudiando;
+    };
+    if (req.body.estrato != null) {
+        res.inscrito.estrato = req.body.estrato;
+    };
+    if (req.body.tipoColegio != null) {
+        res.inscrito.tipoColegio = req.body.tipoColegio;
+    };
+    try {
+        const updatedInscrito = await res.inscrito.save();
+        res.json(updatedInscrito);
+    } catch (err) {
+        res.status(400).json({message: err.message});
+    };
 });
 
 //Eliminar un Inscrito

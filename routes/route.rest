@@ -29,3 +29,11 @@ Content-Type: application/json
 DELETE http://localhost:3000/inscritos/634df16f8fa873743927d532
 
 
+###
+PATCH http://localhost:3000/inscritos/634df4a9b851926e5ed7289d
+Content-Type: application/json
+
+{
+    "tipoDocumento": "Cédula de Ciudadanía"
+}
+
